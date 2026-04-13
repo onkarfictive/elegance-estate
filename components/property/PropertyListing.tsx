@@ -55,7 +55,7 @@ export default function PropertyListing({
   const currentProperties = filteredProperties.slice(first, first + rowsPerPage);
 
   return (
-    <div className="flex flex-col min-h-screen bg-zinc-50 font-outfit">
+    <div className="flex flex-col min-h-screen bg-architect-pattern font-outfit">
       <Header />
       
       <main className="flex-grow">

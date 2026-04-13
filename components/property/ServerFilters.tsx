@@ -75,19 +75,19 @@ const ServerFilters = ({
   ];
 
   return (
-    <div className="bg-white rounded-3xl border border-zinc-100 shadow-md p-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-end">
+    <div className="bg-white/70 backdrop-blur-xl rounded-[2.5rem] border border-white/40 shadow-[0_20px_50px_rgba(0,0,0,0.04)] p-10 ring-1 ring-black/[0.02]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-end">
         
-        {/* Instant Search */}
-        <div className="flex flex-col gap-2">
-          <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest px-1">Location Search</label>
+        {/* Instant Search - Highlighted */}
+        <div className="flex flex-col gap-3 lg:col-span-2 group">
+          <label className="text-[10px] font-black text-blue-600/60 uppercase tracking-widest px-2 group-hover:text-blue-600 transition-colors duration-500">Discover Luxury</label>
           <IconField iconPosition="left">
-            <InputIcon className="pi pi-search text-zinc-400" />
+            <InputIcon className="pi pi-search text-blue-400 group-hover:scale-110 transition-transform duration-500" />
             <InputText
               value={localQ}
               onChange={(e) => setLocalQ(e.target.value)}
-              placeholder="Search Property..."
-              className="w-full h-12 rounded-xl bg-zinc-50 border-zinc-100 text-sm font-bold focus:ring-2 focus:ring-blue-500/20 transition-all"
+              placeholder="Search by location, villa, or lifestyle..."
+              className="w-full h-12 rounded-xl bg-white text-sm font-bold text-zinc-900 placeholder:text-zinc-300 shadow-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/5 transition-all outline-none pl-12"
             />
           </IconField>
         </div>

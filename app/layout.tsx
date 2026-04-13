@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner";
 import PrimeProvider from "@/providers/PrimeReactProvider";
 import GlobalLoader from "@/components/layout/GlobalLoader";
 import { Suspense } from "react";
@@ -74,7 +73,6 @@ export default function RootLayout({
             </GlobalLoader>
           </Suspense>
         </PrimeProvider>
-        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

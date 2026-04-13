@@ -122,7 +122,7 @@ export default async function PropertyDetailPage({ params }: Props) {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F8F9FA] dark:bg-zinc-950">
+    <div className="flex flex-col min-h-screen bg-architect-pattern font-outfit">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -255,6 +255,27 @@ export default async function PropertyDetailPage({ params }: Props) {
                       </span>
                     </div>
                   ))}
+                </div>
+              </div>
+
+              {/* Location Insight - Map */}
+              <div className="bg-white p-2 rounded-2xl border border-zinc-200 shadow-xl overflow-hidden">
+                <div className="p-6">
+                   <h2 className="text-xl font-bold text-zinc-900 mb-1 flex items-center gap-2">
+                     Location Insight
+                   </h2>
+                   <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-6">Explore the neighborhood of {property.city}</p>
+                </div>
+                <div className="relative h-[400px] w-full bg-zinc-100 grayscale hover:grayscale-0 transition-all duration-700">
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    loading="lazy" 
+                    allowFullScreen 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(property.location + ', ' + property.city)}&output=embed`}
+                  ></iframe>
                 </div>
               </div>
             </div>

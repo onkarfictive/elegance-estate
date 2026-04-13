@@ -21,7 +21,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
   };
 
   return (
-    <div className="h-full border border-zinc-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 rounded-[2rem] overflow-hidden bg-white group/card flex flex-col">
+    <div className="h-full border border-zinc-200 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_45px_rgba(0,0,0,0.08)] transition-all duration-500 rounded-[2.5rem] overflow-hidden bg-white group/card flex flex-col hover:-translate-y-1">
       {/* Header / Image Section */}
       <div className="h-72 overflow-hidden relative group">
         <Link href={`/property/${property.id}`} className="relative block h-full w-full">
@@ -31,13 +31,13 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority={priority}
-            className="object-cover transition-all duration-1000 group-hover:scale-105"
+            className="object-cover transition-all duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 transition-opacity duration-500"></div>
         </Link>
         
         {/* City & Category on Top Left */}
-        <div className="absolute top-5 left-5 flex items-center gap-1 bg-zinc-900/60 backdrop-blur-xl border border-white/10 p-1 rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-105">
+        <div className="absolute top-5 left-5 flex items-center gap-1.5 bg-zinc-900/60 backdrop-blur-xl border border-white/10 p-1 rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-105">
           <span className="bg-white text-zinc-900 text-[9px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest whitespace-nowrap">
             {property.category}
           </span>
