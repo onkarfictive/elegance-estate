@@ -56,8 +56,32 @@ export default async function PropertyDetailPage({ params }: Props) {
     notFound();
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateListing',
+    'name': property.title,
+    'description': property.description,
+    'url': `https://elegance-estate.vercel.app/property/${property.id}`,
+    'image': property.image,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': property.city,
+      'streetAddress': property.location,
+      'addressCountry': 'IN'
+    },
+    'offers': {
+      '@type': 'Offer',
+      'price': property.price,
+      'priceCurrency': 'INR'
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-[#F8F9FA] dark:bg-zinc-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
 
       <main className="flex-grow">
