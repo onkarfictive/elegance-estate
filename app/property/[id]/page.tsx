@@ -5,6 +5,27 @@ import { properties } from "@/data/properties";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScheduleVisitForm from "@/components/property/ScheduleVisitForm";
+import { 
+  MapPin, 
+  Check, 
+  Phone, 
+  Mail, 
+  ShieldCheck, 
+  Image as ImageIcon, 
+  History, 
+  Flag, 
+  Star, 
+  Shield, 
+  Droplet,
+  Zap,
+  Briefcase,
+  Map,
+  Plane,
+  Train,
+  School,
+  Building,
+  Dumbbell
+} from "lucide-react";
 
 // Enabling SSG (Static Site Generation) for performance and SEO
 export async function generateStaticParams() {
@@ -45,6 +66,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   };
 }
+
+// Icon Mapping Helper
+const IconMapper = ({ name, className }: { name: string; className?: string }) => {
+  const icons: Record<string, typeof ImageIcon> = {
+    "pi-image": ImageIcon,
+    "pi-lock": ShieldCheck,
+    "pi-history": History,
+    "pi-flag": Flag,
+    "pi-star": Star,
+    "pi-check": Check,
+    "pi-shield": Shield,
+    "pi-bolt": Zap,
+    "pi-map-marker": MapPin,
+    "pi-briefcase": Briefcase,
+    "pi-map": Map,
+    "pi-plane": Plane,
+    "pi-train": Train,
+    "pi-building": Building,
+    "pi-school": School,
+    "pi-dumbbell": Dumbbell,
+    "pi-droplet": Droplet,
+  };
+  
+  const IconComponent = icons[name] || Check;
+  return <IconComponent className={className || "w-4 h-4"} />;
+};
 
 export default async function PropertyDetailPage({ params }: Props) {
   const { id } = await params;
@@ -108,7 +155,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                 {property.title}
               </h1>
               <div className="flex items-center gap-3">
-                <i className="pi pi-map-marker text-blue-400"></i>
+                <MapPin className="text-blue-400 w-5 h-5" />
                 <p className="text-lg md:text-xl text-white/80 font-medium">
                   {property.location}, {property.city}
                 </p>
@@ -156,11 +203,11 @@ export default async function PropertyDetailPage({ params }: Props) {
                   "{property.description}"
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                   <div className="relative h-64 w-full rounded-lg overflow-hidden border border-zinc-100">
-                      <Image src={property.image} alt="Gallery" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+                   <div className="relative h-64 w-full rounded-lg overflow-hidden border border-zinc-100 shadow-sm group">
+                      <Image src={property.image} alt="Gallery" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
                    </div>
-                   <div className="relative h-64 w-full rounded-lg overflow-hidden border border-zinc-100">
-                      <Image src={property.image} alt="Gallery" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+                   <div className="relative h-64 w-full rounded-lg overflow-hidden border border-zinc-100 shadow-sm group">
+                      <Image src={property.image} alt="Gallery" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
                    </div>
                 </div>
               </div>
@@ -170,8 +217,8 @@ export default async function PropertyDetailPage({ params }: Props) {
                 <h2 className="text-xl font-bold text-zinc-900 mb-6">Key Features</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {property.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-3 p-4 rounded-lg bg-zinc-50 border border-zinc-100">
-                      <i className={`pi ${feature.icon} text-blue-500`}></i>
+                    <div key={idx} className="flex items-center gap-3 p-4 rounded-xl bg-zinc-50 border border-zinc-100 shadow-sm">
+                      <IconMapper name={feature.icon} className="w-4 h-4 text-blue-500" />
                       <span className="text-sm font-semibold text-zinc-700">{feature.label}</span>
                     </div>
                   ))}
@@ -181,11 +228,11 @@ export default async function PropertyDetailPage({ params }: Props) {
               {/* World-Class Amenities */}
               <div className="bg-white p-8 rounded-xl border border-zinc-200 shadow-sm">
                 <h2 className="text-xl font-bold text-zinc-900 mb-8">Premium Amenities</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
                   {property.amenities.map((amenity, index) => (
                     <div key={index} className="flex flex-col items-start gap-3">
                       <div className="h-10 w-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-lg">
-                        <i className="pi pi-check text-xs"></i>
+                        <Check className="w-4 h-4" />
                       </div>
                       <span className="text-xs font-bold text-zinc-600 uppercase tracking-tight">{amenity}</span>
                     </div>
@@ -198,9 +245,9 @@ export default async function PropertyDetailPage({ params }: Props) {
                 <h2 className="text-xl font-bold text-zinc-900 mb-8">Nearby Connectivity</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {property.nearby.map((item, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-4 rounded-lg border border-zinc-100 bg-zinc-50/50">
+                    <div key={idx} className="flex items-center justify-between p-4 rounded-xl border border-zinc-100 bg-zinc-50/50">
                       <div className="flex items-center gap-3">
-                        <i className={`pi ${item.icon} text-zinc-400`}></i>
+                        <IconMapper name={item.icon} className="w-4 h-4 text-zinc-400" />
                         <span className="text-sm font-bold text-zinc-800">{item.place}</span>
                       </div>
                       <span className="text-[10px] font-bold text-blue-600 bg-white border border-blue-100 px-2.5 py-1 rounded-md">
@@ -240,12 +287,12 @@ export default async function PropertyDetailPage({ params }: Props) {
                 </div>
 
                 <div className="space-y-3">
-                  <a href={`tel:${property.contact.agentPhone}`} className="flex items-center justify-center gap-2 w-full py-3.5 rounded-lg bg-white/10 text-white font-bold text-[11px] uppercase tracking-widest border border-white/5">
-                    <i className="pi pi-phone text-xs"></i>
+                  <a href={`tel:${property.contact.agentPhone}`} className="flex items-center justify-center gap-2 w-full py-4 rounded-lg bg-white/10 text-white font-bold text-[11px] uppercase tracking-widest border border-white/5 hover:bg-white/20 transition-all duration-300">
+                    <Phone className="w-3.5 h-3.5" />
                     Call Now
                   </a>
-                  <a href={`mailto:${property.contact.agentEmail}`} className="flex items-center justify-center gap-2 w-full py-3.5 rounded-lg bg-white/10 text-white font-bold text-[11px] uppercase tracking-widest border border-white/5">
-                    <i className="pi pi-envelope text-xs"></i>
+                  <a href={`mailto:${property.contact.agentEmail}`} className="flex items-center justify-center gap-2 w-full py-4 rounded-lg bg-white/10 text-white font-bold text-[11px] uppercase tracking-widest border border-white/5 hover:bg-white/20 transition-all duration-300">
+                    <Mail className="w-3.5 h-3.5" />
                     Email Agent
                   </a>
                 </div>

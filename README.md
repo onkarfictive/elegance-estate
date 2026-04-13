@@ -1,74 +1,69 @@
-# EleganceEstate - Luxury Real Estate Boutique
+# 🏛️ EleganceEstate | Luxury Real Estate Architecture
 
-A high-density, premium property listing application built with **Next.js 14**, featuring real-time filtering, architectural design, and SEO-optimized static/server delivery.
+Welcome to **EleganceEstate**, a premier boutique real estate platform designed for high-performance property discovery. This project utilizes a sophisticated hybrid architecture in Next.js, combining Server-Side Performance with Client-Side interactivity.
 
-![Banner](https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)
+---
 
-## 🎯 Project Overview
-This project was developed as a production-standard property listing platform. It demonstrates a sophisticated approach to real estate UX, focusing on "Elegance" through architectural geometry, high-contrast typography, and seamless performance.
+## 🚀 Getting Started
 
-### Key Features
-- **Listing Page**: Real-time multi-dimensional filtering (City, Category, Price, BHK) with integrated PrimeReact Paginator.
-- **Detail Page**: Cinematic architectural overview with high-contrast spec cards, connectivity grids, and verified agent profiles.
-- **Full Form Validation**: 10-digit mobile enforcement and required field monitoring.
-- **Production Pages**: Dedicated 'About Us', 'Contact Us', and 'Privacy Policy' sections with professional boilerplate.
-
-## 🚀 Technical Architecture
-The core of this application leverages the latest Next.js paradigms for maximum performance and SEO.
-
-### Speed & Delivery
-- **SSG (Static Site Generation)**: The property detail pages (`/property/[id]`) are pre-rendered at build time using `generateStaticParams`. This ensures instant navigation and perfect crawling by search engines.
-- **SSR (Server-Side Rendering)**: The main listing and category pages are Server Components by default, ensuring fast initial loads and high core web vitals.
-- **SEO Optimization**: Full implementation of Next.js Metadata API, including:
-  - Canonical URLs
-  - OpenGraph / Twitter Cards
-  - Semantic HTML5 structure
-  - Robot directives and structured keywords
-
-### Technology Stack
-- **Framework**: [Next.js 14 (App Router)](https://nextjs.org/)
-- **UI Library**: [PrimeReact](https://primereact.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **State Management**: React Server Components & `useState`
-- **Icons**: PrimeIcons
-
-## 🛠️ Setup Instructions
+To launch the EleganceEstate development experience, follow these steps:
 
 ### 1. Prerequisites
-- Node.js (v18.0.0 or higher)
-- npm or yarn
+Ensure you have **Node.js (v18+)** and **npm** installed on your system.
 
 ### 2. Installation
-Clone the repository and install dependencies:
+Clone the repository and install the high-end dependencies:
 ```bash
-git clone <repository-url>
-cd elegance-property-listing
 npm install
 ```
 
-### 3. Running Locally
-Start the development server:
+### 3. Launch Development Server
+Start the Turbopack-powered environment:
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### 4. Production Build
-To build the application for production (generating static pages):
-```bash
-npm run build
-npm run start
-```
-
-## 📂 Folder Structure
-```bash
-├── app/                  # Next.js App Router (SSR/SSG logic)
-├── components/           # UI Components (Header, Footer, Cards)
-│   ├── layout/           # Shared Layout Elements
-│   └── property/         # Core Property Logic
-├── data/                 # Property Database (static data)
-└── public/               # Static Assets
-```
+The site will be live at `http://localhost:3000`.
 
 ---
-**Developed for Excellence by Antigravity**
+
+## 🏗️ Technical Architecture Map
+
+EleganceEstate is built on a **Total Production Model**. Our folder structure and rendering strategies are optimized for enterprise-level scaling:
+
+### 🔥 SSG (Static Site Generation)
+*Optimized for SEO and Instant Load times.*
+- **`app/property/[id]/page.tsx`**: Dynamic Property Detail pages pre-rendered via `generateStaticParams`.
+
+### ⚡ SSR (Server-Side Rendering)
+*Optimized for speed, SEO, and lean client bundles.*
+- **`Header.tsx` & `Footer.tsx`**: Main navigation components are now pure Server Components, ensuring zero hydration overhead.
+- **`app/page.tsx`**: The data orchestrator for the property marketplace.
+- **`PropertyListing.tsx`**: Core listing engine that processes complex filtering on the server.
+
+### 💎 CSR (Client-Side Rendering)
+*Optimized for Boutique Interactivity.*
+- **`ServerFilters.tsx`**: Debounced search and real-time URL synchronization.
+- **`PaginatorBridge.tsx`**: PrimeReact pagination link to server state.
+- **`ScheduleVisitForm.tsx`**: High-end PrimeReact form with Toast feedback.
+- **`GlobalLoader.tsx`**: High-priority navigation transitions.
+
+---
+
+## 🏛️ Production Folder Structure
+- **`types/`**: Centralized TypeScript interfaces for strict type safety.
+- **`constants/`**: Extracted static data (Cities, Categories, Options) for clean components.
+- **`components/layout/`**: Core SSR architectural wrappers.
+- **`components/property/`**: Feature-specific real estate components.
+- **`providers/`**: Global PrimeReact and styling context.
+
+---
+
+## 🎨 Technology Stack
+- **Framework**: Next.js 16 (App Router)
+- **UI Library**: PrimeReact (Exclusively)
+- **Styling**: Tailwind CSS (Zinc Boutique Theme)
+- **State**: URL-driven (Server Sync)
+
+---
+
+© 2026 Elegance Estate Private Limited. Built for Excellence.

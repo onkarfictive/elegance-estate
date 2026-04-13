@@ -52,11 +52,6 @@ body {
   font-family: var(--font-outfit), sans-serif;
 }
 
-/* PrimeReact Override */
-.custom-card .p-card-body,
-.custom-card .p-card-content {
-  padding: 0 !important;
-}
 
 :root {
   --background: oklch(1 0 0);
@@ -125,6 +120,11 @@ body {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Global Toast Z-Index Override */
+.p-toast {
+  z-index: 9999 !important;
 }
 
 @layer base {

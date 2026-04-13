@@ -1,38 +1,4 @@
-export interface PropertyFeature {
-  icon: string;
-  label: string;
-}
-
-export interface NearbyPlace {
-  place: string;
-  distance: string;
-  icon: string;
-}
-
-export interface ContactDetails {
-  agentName: string;
-  agentPhone: string;
-  agentEmail: string;
-  agentImage: string;
-}
-
-export interface Property {
-  id: string;
-  title: string;
-  description: string;
-  location: string;
-  city: "Bangalore" | "Mumbai" | "Noida" | "Hyderabad";
-  price: number;
-  rooms: number;
-  bathrooms: number;
-  area: number;
-  image: string;
-  category: string;
-  amenities: string[];
-  features: PropertyFeature[];
-  nearby: NearbyPlace[];
-  contact: ContactDetails;
-}
+import { Property, ContactDetails } from "../types/property";
 
 const agents: ContactDetails[] = [
   {
