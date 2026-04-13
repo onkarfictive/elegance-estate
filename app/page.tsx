@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import PropertyListing from "../components/property/PropertyListing";
-
 export const metadata: Metadata = {
   title: "Premium Real Estate India | Luxury Villas & Penthouses | EleganceEstate",
   description: "Explore EleganceEstate's curated collection of luxury properties in India. From beachfront villas in Mumbai to elite penthouses in Bangalore, find your next masterpiece today.",
@@ -21,14 +20,11 @@ export const metadata: Metadata = {
     canonical: "/",
   }
 };
-
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
-
 export default async function Home({ searchParams }: PageProps) {
   const params = await searchParams;
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -40,7 +36,6 @@ export default async function Home({ searchParams }: PageProps) {
       "query-input": "required name=search_term_string"
     }
   };
-  
   return (
     <>
       <script

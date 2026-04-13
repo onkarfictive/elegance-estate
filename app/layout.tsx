@@ -4,12 +4,10 @@ import "./globals.css";
 import PrimeProvider from "@/providers/PrimeReactProvider";
 import GlobalLoader from "@/components/layout/GlobalLoader";
 import { Suspense } from "react";
-
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
 });
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://elegance-estate.vercel.app"),
   title: {
@@ -57,7 +55,6 @@ export const metadata: Metadata = {
     canonical: "/",
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{

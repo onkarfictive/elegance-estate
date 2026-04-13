@@ -38,6 +38,15 @@ npm run dev
 
 The site will be live at `http://localhost:3000`.
 
+
+For Build - 
+```bash
+npm run build
+npm start
+```
+
+The site will be live at `http://localhost:3000`.
+
 ---
 
 ## 🏗️ Technical Architecture Map

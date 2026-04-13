@@ -1,5 +1,4 @@
 import { Property, ContactDetails } from "../types/property";
-
 const agents: ContactDetails[] = [
   {
     agentName: "Arjun Sharma",
@@ -26,7 +25,6 @@ const agents: ContactDetails[] = [
     agentImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&h=400&fit=crop",
   },
 ];
-
 export const properties: Property[] = [
   {
     id: "1",
@@ -340,7 +338,6 @@ export const properties: Property[] = [
     ],
     contact: agents[0],
   },
-  // Adding more to make it 24
   {
     id: "14",
     title: "Bandra Sea Link View",

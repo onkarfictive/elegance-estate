@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useRef } from "react";
 import { Calendar } from "primereact/calendar";
 import { InputText } from "primereact/inputtext";
@@ -7,14 +6,12 @@ import { Toast } from "primereact/toast";
 import { Dropdown } from "primereact/dropdown";
 import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
-
 const ScheduleVisitForm = () => {
   const [date, setDate] = useState<Date | null>(null);
   const [time, setTime] = useState<any>(null);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const toast = useRef<Toast>(null);
-
   const timeSlots = [
     { label: "10:00 AM", value: "10:00 AM" },
     { label: "11:00 AM", value: "11:00 AM" },
@@ -24,7 +21,6 @@ const ScheduleVisitForm = () => {
     { label: "04:00 PM", value: "04:00 PM" },
     { label: "05:00 PM", value: "05:00 PM" },
   ];
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !phone || !date || !time) {
@@ -36,7 +32,6 @@ const ScheduleVisitForm = () => {
       });
       return;
     }
-
     if (phone.length !== 10) {
       toast.current?.show({
         severity: "warn",
@@ -46,27 +41,22 @@ const ScheduleVisitForm = () => {
       });
       return;
     }
-
     toast.current?.show({
       severity: "success",
       summary: "Visit Scheduled!",
       detail: `Thank you ${name}! Our agent will contact you for the visit on ${date.toLocaleDateString()} at ${time}.`,
       life: 5000,
     });
-
-    // Reset form
     setName("");
     setPhone("");
     setDate(null);
     setTime(null);
   };
-
   return (
     <div className="p-8 rounded-[2rem] bg-white dark:bg-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-zinc-100 dark:border-zinc-800">
       <Toast ref={toast} />
       <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-1.5 tracking-tight">Schedule a Visit</h3>
       <p className="text-zinc-500 text-[13px] mb-8 leading-relaxed font-medium">Select your preferred date and time to tour this property with our expert consultant.</p>
-      
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="flex flex-col gap-2.5">
           <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-1">
@@ -83,7 +73,6 @@ const ScheduleVisitForm = () => {
             />
           </IconField>
         </div>
-
         <div className="flex flex-col gap-2.5">
           <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-1">
             Phone Number <span className="text-red-500">*</span>
@@ -103,7 +92,6 @@ const ScheduleVisitForm = () => {
             />
           </IconField>
         </div>
-
         <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2.5">
             <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-1">
@@ -133,7 +121,6 @@ const ScheduleVisitForm = () => {
             />
           </div>
         </div>
-
         <button 
           type="submit"
           className="w-full h-14 bg-zinc-900 hover:bg-blue-600 text-white rounded-2xl font-bold text-sm uppercase tracking-widest transition-all shadow-xl shadow-zinc-900/10 hover:shadow-blue-500/20 active:scale-[0.98] mt-4 flex items-center justify-center gap-2"
@@ -141,7 +128,6 @@ const ScheduleVisitForm = () => {
           <i className="pi pi-calendar-plus text-base"></i>
           Confirm Schedule
         </button>
-        
         <p className="text-[9px] text-center text-zinc-400 mt-6 px-4 uppercase tracking-tighter leading-relaxed">
           By clicking confirm, you agree to our terms of service and property visit guidelines.
         </p>
@@ -149,5 +135,4 @@ const ScheduleVisitForm = () => {
     </div>
   );
 };
-
 export default ScheduleVisitForm;

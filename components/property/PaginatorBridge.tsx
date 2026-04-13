@@ -1,54 +1,44 @@
 "use client";
-
 import { useRouter, useSearchParams } from "next/navigation";
 import { Paginator } from "primereact/paginator";
 import { useEffect, useState } from "react";
-
 interface PaginatorBridgeProps {
   first: number;
   rows: number;
   totalRecords: number;
 }
-
 const PaginatorBridge = ({ first, rows, totalRecords }: PaginatorBridgeProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
-
-  const [pageSize, setPageSize] = useState(4); // default desktop
-
+  const [pageSize, setPageSize] = useState(4); 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setPageSize(2); // mobile
+        setPageSize(2); 
       } else {
-        setPageSize(4); // desktop
+        setPageSize(4); 
       }
     };
-
-    handleResize(); // run on mount
+    handleResize(); 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
   const onPageChange = (event: { page: number }) => {
     const params = new URLSearchParams(searchParams.toString());
     const newPage = (event.page + 1).toString();
     params.set("page", newPage);
     router.push(`/?${params.toString()}`, { scroll: false });
-
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
   return (
     <Paginator 
       first={first} 
       rows={rows} 
       totalRecords={totalRecords} 
       onPageChange={onPageChange}
-      pageLinkSize={pageSize} // 👈 dynamic
+      pageLinkSize={pageSize} 
       className="bg-white border border-zinc-100 rounded-[2rem] shadow-sm p-3 sm:p-4"
     />
   );
 };
-
 export default PaginatorBridge;

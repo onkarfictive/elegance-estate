@@ -6,7 +6,6 @@ import Footer from "../layout/Footer";
 import ServerFilters from "./ServerFilters";
 import { AlertCircle } from "lucide-react";
 import PaginatorBridge from "./PaginatorBridge";
-
 interface PropertyListingProps {
   q?: string;
   city?: string;
@@ -16,7 +15,6 @@ interface PropertyListingProps {
   beds?: string;
   page?: string;
 }
-
 export default function PropertyListing({
   q = "",
   city = "all",
@@ -26,14 +24,11 @@ export default function PropertyListing({
   beds,
   page = "1",
 }: PropertyListingProps) {
-  
   const parsedMinPrice = minPrice ? parseInt(minPrice) : 0;
   const parsedMaxPrice = maxPrice ? parseInt(maxPrice) : 250000000;
   const parsedBeds = beds ? parseInt(beds) : null;
   const currentPage = parseInt(page);
   const rowsPerPage = 6;
-
-  // Server-Side Filtering
   const filteredProperties = properties.filter((p) => {
     const lowerSearch = q.toLowerCase();
     const matchesSearch = 
@@ -41,25 +36,19 @@ export default function PropertyListing({
       p.title.toLowerCase().includes(lowerSearch) ||
       p.city.toLowerCase().includes(lowerSearch) ||
       p.location.toLowerCase().includes(lowerSearch);
-    
     const matchesCity = city === "all" || p.city === city;
     const matchesCategory = category === "all" || p.category === category;
     const matchesPrice = p.price >= parsedMinPrice && p.price <= parsedMaxPrice;
     const matchesBeds = parsedBeds === null ? true : (parsedBeds === 5 ? p.rooms >= 5 : p.rooms === parsedBeds);
-
     return matchesSearch && matchesCity && matchesCategory && matchesPrice && matchesBeds;
   });
-
   const totalRecords = filteredProperties.length;
   const first = (currentPage - 1) * rowsPerPage;
   const currentProperties = filteredProperties.slice(first, first + rowsPerPage);
-
   return (
     <div className="flex flex-col min-h-screen bg-architect-pattern font-outfit">
       <Header />
-      
       <main className="flex-grow">
-        {/* Clean, Direct Listing Header - No Hero Banner */}
         <section className="pt-12 px-6 relative z-30">
           <div className="container mx-auto">
             <ServerFilters 
@@ -72,7 +61,6 @@ export default function PropertyListing({
             />
           </div>
         </section>
-
         <section className="container mx-auto px-6 py-12">
           <div className="flex items-end justify-between mb-12 px-1">
             <div>
@@ -84,7 +72,6 @@ export default function PropertyListing({
               </p>
             </div>
           </div>
-
           {currentProperties.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {currentProperties.map((property, index) => (
@@ -98,8 +85,6 @@ export default function PropertyListing({
               <p className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest mt-2">Try adjusting your filters</p>
             </div>
           )}
-
-          {/* PrimeReact Paginator (Client Bridge) */}
           {totalRecords > rowsPerPage && (
             <div className="mt-16">
               <PaginatorBridge 
@@ -111,7 +96,6 @@ export default function PropertyListing({
           )}
         </section>
       </main>
-
       <Footer />
     </div>
   );

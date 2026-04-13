@@ -1,5 +1,4 @@
 import { MetadataRoute } from 'next';
-
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'EleganceEstate Luxury Real Estate',

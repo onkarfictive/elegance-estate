@@ -26,28 +26,22 @@ import {
   Building,
   Dumbbell
 } from "lucide-react";
-
-// Enabling SSG (Static Site Generation) for performance and SEO
 export async function generateStaticParams() {
   return properties.map((property) => ({
     id: property.id,
   }));
 }
-
 interface Props {
   params: { id: string };
 }
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const property = properties.find((p) => p.id === id);
-  
   if (!property) {
     return {
       title: "Property Not Found",
     };
   }
-
   return {
     title: `${property.title} | ${property.city} | EleganceEstate`,
     description: property.description,
@@ -66,8 +60,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   };
 }
-
-// Icon Mapping Helper
 const IconMapper = ({ name, className }: { name: string; className?: string }) => {
   const icons: Record<string, typeof ImageIcon> = {
     "pi-image": ImageIcon,
@@ -88,19 +80,15 @@ const IconMapper = ({ name, className }: { name: string; className?: string }) =
     "pi-dumbbell": Dumbbell,
     "pi-droplet": Droplet,
   };
-  
   const IconComponent = icons[name] || Check;
   return <IconComponent className={className || "w-4 h-4"} />;
 };
-
 export default async function PropertyDetailPage({ params }: Props) {
   const { id } = await params;
   const property = properties.find((p) => p.id === id);
-
   if (!property) {
     notFound();
   }
-
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'RealEstateListing',
@@ -120,7 +108,6 @@ export default async function PropertyDetailPage({ params }: Props) {
       'priceCurrency': 'INR'
     }
   };
-
   return (
     <div className="flex flex-col min-h-screen bg-architect-pattern font-outfit">
       <script
@@ -128,9 +115,7 @@ export default async function PropertyDetailPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
-
       <main className="flex-grow">
-        {/* Banner Image - Clean Architectural Style */}
         <section className="relative h-[400px] w-full overflow-hidden bg-zinc-100">
           <Image
             src={property.image}
@@ -163,15 +148,9 @@ export default async function PropertyDetailPage({ params }: Props) {
             </div>
           </div>
         </section>
-
-        {/* Content Section */}
         <section className="container mx-auto py-12 px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            
-            {/* Main Content Area */}
             <div className="lg:col-span-2 space-y-10">
-              
-              {/* Essential Specs Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="bg-white p-6 rounded-xl border border-zinc-200 shadow-sm">
                   <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-wider block mb-2">Price</span>
@@ -192,8 +171,6 @@ export default async function PropertyDetailPage({ params }: Props) {
                   <p className="text-2xl font-bold text-zinc-900">{property.area} sqft</p>
                 </div>
               </div>
-
-              {/* Description Section */}
               <div className="bg-white p-8 rounded-xl border border-zinc-200 shadow-sm">
                 <h2 className="text-xl font-bold text-zinc-900 mb-6 flex items-center gap-2">
                   <span className="w-1 h-6 bg-blue-600 rounded-full"></span>
@@ -211,8 +188,6 @@ export default async function PropertyDetailPage({ params }: Props) {
                    </div>
                 </div>
               </div>
-
-              {/* Detailed Features */}
               <div className="bg-white p-8 rounded-xl border border-zinc-200 shadow-sm">
                 <h2 className="text-xl font-bold text-zinc-900 mb-6">Key Features</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -224,8 +199,6 @@ export default async function PropertyDetailPage({ params }: Props) {
                   ))}
                 </div>
               </div>
-
-              {/* World-Class Amenities */}
               <div className="bg-white p-8 rounded-xl border border-zinc-200 shadow-sm">
                 <h2 className="text-xl font-bold text-zinc-900 mb-8">Premium Amenities</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
@@ -239,8 +212,6 @@ export default async function PropertyDetailPage({ params }: Props) {
                   ))}
                 </div>
               </div>
-
-              {/* Connectivity Highlights */}
               <div className="bg-white p-8 rounded-xl border border-zinc-200 shadow-sm">
                 <h2 className="text-xl font-bold text-zinc-900 mb-8">Nearby Connectivity</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -257,8 +228,6 @@ export default async function PropertyDetailPage({ params }: Props) {
                   ))}
                 </div>
               </div>
-
-              {/* Location Insight - Map */}
               <div className="bg-white p-2 rounded-2xl border border-zinc-200 shadow-xl overflow-hidden">
                 <div className="p-6">
                    <h2 className="text-xl font-bold text-zinc-900 mb-1 flex items-center gap-2">
@@ -279,18 +248,12 @@ export default async function PropertyDetailPage({ params }: Props) {
                 </div>
               </div>
             </div>
-
-            {/* Sidebar */}
             <div className="lg:col-span-1 space-y-8">
-              {/* Schedule Visit Form Component */}
               <ScheduleVisitForm />
-
-              {/* Agent Card */}
               <div className="bg-zinc-900 p-8 rounded-xl text-white shadow-xl relative overflow-hidden">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                    Contact Specialist
                 </h3>
-                
                 <div className="flex items-center gap-4 mb-8">
                   <div className="h-16 w-16 rounded-xl overflow-hidden relative border border-white/10">
                     <Image 
@@ -306,7 +269,6 @@ export default async function PropertyDetailPage({ params }: Props) {
                     <p className="text-[10px] text-blue-400 font-bold uppercase tracking-widest">Listing Partner</p>
                   </div>
                 </div>
-
                 <div className="space-y-3">
                   <a href={`tel:${property.contact.agentPhone}`} className="flex items-center justify-center gap-2 w-full py-4 rounded-lg bg-white/10 text-white font-bold text-[11px] uppercase tracking-widest border border-white/5 hover:bg-white/20 transition-all duration-300">
                     <Phone className="w-3.5 h-3.5" />
@@ -317,7 +279,6 @@ export default async function PropertyDetailPage({ params }: Props) {
                     Email Agent
                   </a>
                 </div>
-                
                 <p className="mt-8 text-[9px] text-zinc-500 uppercase tracking-widest font-bold text-center">
                    Verified By Elegance Estate Team
                 </p>
@@ -326,7 +287,6 @@ export default async function PropertyDetailPage({ params }: Props) {
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );

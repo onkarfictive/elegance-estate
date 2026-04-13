@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Dropdown } from "primereact/dropdown";
@@ -8,7 +7,6 @@ import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
 import {  INITIAL_MAX_PRICE } from "@/constants/filterOptions";
 import { ServerFiltersProps } from "@/types/property";
-
 const ServerFilters = ({
   initialQ = "",
   initialCity = "all",
@@ -20,8 +18,6 @@ const ServerFilters = ({
   const router = useRouter();
   const searchParams = useSearchParams();
   const [localQ, setLocalQ] = useState(initialQ);
-
-  // URL State Sync Helper
   const updateQuery = React.useCallback((updates: Record<string, string | null>) => {
     const params = new URLSearchParams(searchParams.toString());
     Object.entries(updates).forEach(([key, value]) => {
@@ -34,23 +30,17 @@ const ServerFilters = ({
     params.set("page", "1");
     router.push(`/?${params.toString()}`, { scroll: false });
   }, [router, searchParams]);
-
-  // Instant Debounced Search Logic
   useEffect(() => {
     const timer = setTimeout(() => {
       if (localQ !== initialQ) {
         updateQuery({ q: localQ });
       }
     }, 400);
-
     return () => clearTimeout(timer);
   }, [localQ, initialQ, updateQuery]);
-
-  // Sync local state if URL changes externally (e.g., Back button)
   useEffect(() => {
     setLocalQ(initialQ);
   }, [initialQ]);
-
   const cities = [
     { label: "All Cities", value: "all" },
     { label: "Bangalore", value: "Bangalore" },
@@ -58,7 +48,6 @@ const ServerFilters = ({
     { label: "Noida", value: "Noida" },
     { label: "Hyderabad", value: "Hyderabad" },
   ];
-
   const categories = [
     { label: "All Categories", value: "all" },
     { label: "Villa", value: "Villa" },
@@ -66,19 +55,15 @@ const ServerFilters = ({
     { label: "Penthouse", value: "Penthouse" },
     { label: "Mansion", value: "Mansion" },
   ];
-
   const beds = [
     { label: "Any BHK", value: "all" },
     { label: "3 BHK", value: "3" },
     { label: "4 BHK", value: "4" },
     { label: "5+ BHK", value: "5" },
   ];
-
   return (
     <div className="bg-white/70 backdrop-blur-xl rounded-[2.5rem] border border-white/40 shadow-[0_20px_50px_rgba(0,0,0,0.04)] p-10 ring-1 ring-black/[0.02]">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-end">
-        
-        {/* Instant Search - Highlighted */}
         <div className="flex flex-col gap-3 lg:col-span-2 group">
           <label className="text-[10px] font-black text-blue-600/60 uppercase tracking-widest px-2 group-hover:text-blue-600 transition-colors duration-500">Discover Luxury</label>
           <IconField iconPosition="left">
@@ -91,8 +76,6 @@ const ServerFilters = ({
             />
           </IconField>
         </div>
-
-        {/* City Select */}
         <div className="flex flex-col gap-2">
           <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest px-1">Destination</label>
           <Dropdown
@@ -102,8 +85,6 @@ const ServerFilters = ({
             className="w-full h-12 rounded-xl bg-zinc-50 border-zinc-100 flex items-center font-bold text-sm"
           />
         </div>
-
-        {/* Category Select */}
         <div className="flex flex-col gap-2">
           <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest px-1">Residency Type</label>
           <Dropdown
@@ -113,8 +94,6 @@ const ServerFilters = ({
             className="w-full h-12 rounded-xl bg-zinc-50 border-zinc-100 flex items-center font-bold text-sm"
           />
         </div>
-
-        {/* Beds Select */}
         <div className="flex flex-col gap-2">
           <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest px-1">Bedrooms (BHK)</label>
           <Dropdown
@@ -124,8 +103,6 @@ const ServerFilters = ({
             className="w-full h-12 rounded-xl bg-zinc-50 border-zinc-100 flex items-center font-bold text-sm"
           />
         </div>
-
-        {/* Price Bracket Dropdown */}
         <div className="flex flex-col gap-2">
           <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest px-1">Budget Range</label>
           <Dropdown
@@ -153,7 +130,6 @@ const ServerFilters = ({
           />
         </div>
       </div>
-
       <div className="mt-8 border-t border-zinc-100 flex items-center justify-between">
          <button 
            onClick={() => router.push("/")}
@@ -166,5 +142,4 @@ const ServerFilters = ({
     </div>
   );
 };
-
 export default ServerFilters;

@@ -3,21 +3,17 @@ import { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Image from "next/image";
-
 export const metadata: Metadata = {
   title: "About Us | Elegance Estate - Luxury Real Estate Boutique",
   description: "Redefining the luxury real estate experience in India with a boutique, personalized approach to the most prestigious properties.",
   keywords: ["Luxury Real Estate India", "Elegance Estate", "About Us", "Premium Real Estate Agency"],
 };
-
 const AboutPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#F8F9FA]">
       <Header />
-
       <main className="flex-grow pt-32 md:pt-48 pb-24 px-6">
         <div className="container mx-auto">
-          {/* Hero Section */}
           <div className="max-w-4xl mb-24">
             <h1 className="text-5xl md:text-8xl font-black text-zinc-900 tracking-tighter mb-8 leading-none">
               REDEFINING <br />
@@ -28,8 +24,6 @@ const AboutPage = () => {
               built on a foundation of trust, excellence, and architectural mastery.
             </p>
           </div>
-
-          {/* Mission & Vision Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
             <div className="bg-white p-12 rounded-3xl border border-zinc-100 shadow-sm relative overflow-hidden group">
                <div className="absolute top-0 right-0 p-12 opacity-5 scale-150 rotate-12 transition-transform group-hover:rotate-0">
@@ -52,8 +46,6 @@ const AboutPage = () => {
                </p>
             </div>
           </div>
-
-          {/* Core Values Section */}
           <div className="mb-32">
             <div className="flex items-end justify-between mb-16 px-1">
                <div>
@@ -85,8 +77,6 @@ const AboutPage = () => {
                </div>
             </div>
           </div>
-
-          {/* Stats Bar */}
           <div className="bg-zinc-900 p-12 md:p-20 rounded-[3rem] text-white flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left shadow-2xl">
              <div>
                 <p className="text-5xl md:text-7xl font-black tracking-tighter mb-2">500+</p>
@@ -105,10 +95,8 @@ const AboutPage = () => {
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );
 };
-
 export default AboutPage;

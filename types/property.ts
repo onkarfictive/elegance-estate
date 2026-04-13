@@ -2,22 +2,18 @@ export interface PropertyFeature {
   icon: string;
   label: string;
 }
-
 export interface NearbyPlace {
   place: string;
   distance: string;
   icon: string;
 }
-
 export interface ContactDetails {
   agentName: string;
   agentPhone: string;
   agentEmail: string;
   agentImage: string;
 }
-
 export type City = "Bangalore" | "Mumbai" | "Noida" | "Hyderabad" | "all";
-
 export interface Property {
   id: string;
   title: string;
@@ -35,7 +31,6 @@ export interface Property {
   nearby: NearbyPlace[];
   contact: ContactDetails;
 }
-
 export interface ServerFiltersProps {
   initialQ?: string;
   initialCity?: string;

@@ -1,28 +1,22 @@
 "use client";
-
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Heart } from "lucide-react";
 import { Property } from "@/types/property";
-
 interface PropertyCardProps {
   property: Property;
   priority?: boolean;
 }
-
 const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false }) => {
   const [isLiked, setIsLiked] = useState(false);
-
   const formatPrice = (price: number) => {
     const cr = price / 10000000;
     if (cr >= 1) return `₹${cr.toFixed(2)} Cr`;
     return `₹${(price / 100000).toFixed(2)} Lacs`;
   };
-
   return (
     <div className="h-full border border-zinc-200 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_45px_rgba(0,0,0,0.08)] transition-all duration-500 rounded-[2.5rem] overflow-hidden bg-white group/card flex flex-col hover:-translate-y-1">
-      {/* Header / Image Section */}
       <div className="h-72 overflow-hidden relative group">
         <Link href={`/property/${property.id}`} className="relative block h-full w-full">
           <Image
@@ -35,8 +29,6 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 transition-opacity duration-500"></div>
         </Link>
-        
-        {/* City & Category on Top Left */}
         <div className="absolute top-5 left-5 flex items-center gap-1.5 bg-zinc-900/60 backdrop-blur-xl border border-white/10 p-1 rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-105">
           <span className="bg-white text-zinc-900 text-[9px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest whitespace-nowrap">
             {property.category}
@@ -45,8 +37,6 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
             {property.city}
           </span>
         </div>
-
-        {/* Premium Floating Price on Bottom Left */}
         <div className="absolute bottom-5 left-5">
           <div className="bg-zinc-900/90 backdrop-blur-md border border-white/10 px-4 py-2 rounded-xl shadow-2xl transform transition-transform duration-500 group-hover:translate-y-[-4px]">
              <p className="text-white font-black text-sm tracking-tight leading-none">
@@ -54,8 +44,6 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
              </p>
           </div>
         </div>
-
-        {/* Heart Action */}
         <div className="absolute top-5 right-5">
           <button 
             onClick={(e) => { e.preventDefault(); setIsLiked(!isLiked); }}
@@ -71,8 +59,6 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
           </button>
         </div>
       </div>
-
-      {/* Content Section */}
       <div className="flex flex-col p-6 flex-grow">
         <div className="flex-grow">
           <Link href={`/property/${property.id}`}>
@@ -87,8 +73,6 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
             </p>
           </div>
         </div>
-        
-        {/* Specs Grid */}
         <div className="grid grid-cols-4 gap-2 bg-zinc-50/80 p-4 rounded-2xl border border-zinc-100/50">
           <div className="flex flex-col gap-1.5">
              <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest leading-none">BHK</span>
@@ -107,8 +91,6 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
              <span className="text-base font-bold text-zinc-900 leading-none truncate">{property.area} <span className="text-[9px] font-medium text-zinc-400 uppercase">sqft</span></span>
           </div>
         </div>
- 
-        {/* Footer */}
         <div className="flex items-center justify-between pt-6 border-t border-zinc-100/60 mt-auto">
            <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-lg bg-zinc-100 overflow-hidden relative border border-white shadow-sm">
@@ -126,7 +108,6 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
                 <span className="text-[9px] font-medium text-zinc-400 uppercase tracking-wider mt-1.5">Property Advisor</span>
               </div>
            </div>
-           
            <Link href={`/property/${property.id}`}>
               <button className="group/btn relative overflow-hidden bg-zinc-900 text-white px-6 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all duration-500 hover:shadow-xl hover:shadow-zinc-900/20 active:scale-95">
                 <span className="relative z-10 font-bold">Details</span>
@@ -138,5 +119,4 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
     </div>
   );
 };
-
 export default PropertyCard;

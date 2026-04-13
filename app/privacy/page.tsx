@@ -1,19 +1,16 @@
 import { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-
 export const metadata: Metadata = {
   title: "Privacy Policy | Elegance Estate - Luxury Real Estate",
   description: "Learn about how we protect your information and ensure complete privacy while helping you find your dream home in India.",
   keywords: ["Privacy Policy", "Real Estate Data Protection India", "Elegance Estate Legal"],
-  robots: { index: false, follow: true }, // Usually legal pages don't need heavy indexing but must be followable
+  robots: { index: false, follow: true }, 
 };
-
 const PrivacyPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#F8F9FA]">
       <Header />
-
       <main className="flex-grow pt-32 md:pt-48 pb-24 px-6">
         <div className="container mx-auto max-w-4xl">
           <div className="mb-16">
@@ -22,7 +19,6 @@ const PrivacyPage = () => {
             </h1>
             <p className="text-zinc-500 font-bold text-[10px] uppercase tracking-widest">Effective Date: April 13, 2026</p>
           </div>
-
           <div className="bg-white p-10 md:p-16 rounded-3xl border border-zinc-200 shadow-sm space-y-12 text-zinc-600 leading-relaxed font-normal">
             <section>
               <h2 className="text-2xl font-bold text-zinc-900 mb-6 tracking-tight uppercase">1. Introduction</h2>
@@ -37,7 +33,6 @@ const PrivacyPage = () => {
                 we collect, how we use it and what rights you have in relation to it.
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold text-zinc-900 mb-6 tracking-tight uppercase">2. Information We Collect</h2>
               <p className="mb-4">
@@ -52,7 +47,6 @@ const PrivacyPage = () => {
                 <li>Communication Records (Visit schedules, Email inquiries)</li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold text-zinc-900 mb-6 tracking-tight uppercase">3. How We Use Your Information</h2>
               <p className="mb-4">
@@ -70,7 +64,6 @@ const PrivacyPage = () => {
                 <li>To respond to legal requests and prevent harm.</li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold text-zinc-900 mb-6 tracking-tight uppercase">4. Sharing Your Information</h2>
               <p>
@@ -80,7 +73,6 @@ const PrivacyPage = () => {
                 Legal Obligations, and Legitimate Interests.
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold text-zinc-900 mb-6 tracking-tight uppercase">5. Data Retention</h2>
               <p>
@@ -89,7 +81,6 @@ const PrivacyPage = () => {
                 by law (such as tax, accounting or other legal requirements).
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold text-zinc-900 mb-6 tracking-tight uppercase">6. Your Rights</h2>
               <p>
@@ -99,7 +90,6 @@ const PrivacyPage = () => {
                 processing of your personal information; and (iv) if applicable, to data portability.
               </p>
             </section>
-
             <div className="pt-12 border-t border-zinc-100 italic text-sm text-zinc-400">
                If you wish to exercise any of these rights, please contact our Data Protection Officer at 
                dpo@eleganceestate.in.
@@ -107,10 +97,8 @@ const PrivacyPage = () => {
           </div>
         </div>
       </main>
-
       <Footer />
     </div>
   );
 };
-
 export default PrivacyPage;
