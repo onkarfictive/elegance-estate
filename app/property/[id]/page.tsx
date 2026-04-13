@@ -1,11 +1,9 @@
-import React from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { properties } from "@/data/properties";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Button } from "primereact/button";
 import ScheduleVisitForm from "@/components/property/ScheduleVisitForm";
 
 // Enabling SSG (Static Site Generation) for performance and SEO

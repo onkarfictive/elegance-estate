@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useRef } from "react";
+import Image from "next/image";
 import { InputText } from "primereact/inputtext";
 import { Paginator, PaginatorPageChangeEvent } from "primereact/paginator";
 import { Dropdown } from "primereact/dropdown";
@@ -14,6 +15,7 @@ import { properties } from "@/data/properties";
 import PropertyCard from "@/components/property/PropertyCard";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+
 
 export default function HomeClient() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -93,9 +95,30 @@ export default function HomeClient() {
       <Header />
       
       <main className="flex-grow">
-        <section className="bg-white border-b border-zinc-200 py-10 px-6">
+        {/* Luxury Hero Banner */}
+        <section className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden bg-zinc-900">
+          <Image
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000"
+            alt="Luxury Real Estate India"
+            fill
+            priority
+            className="object-cover opacity-60"
+          />
+          <div className="container mx-auto px-6 relative z-10 text-center">
+            <h1 className="text-4xl md:text-7xl font-black text-white tracking-tighter mb-4 leading-none uppercase animate-in fade-in slide-in-from-top-8 duration-1000">
+              Find Your <span className="text-blue-400">Masterpiece.</span>
+            </h1>
+            <p className="text-zinc-300 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+              Boutique luxury property listings curated for the extraordinary life. 
+              Discover the most prestigious addresses in India.
+            </p>
+          </div>
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-zinc-50 to-transparent"></div>
+        </section>
+
+        <section className="pb-20 px-6 -mt-16 relative z-20">
           <div className="container mx-auto">
-            <div className={`bg-white rounded-2xl border border-zinc-200 shadow-xl transition-all duration-300 ${isFilterActive ? 'pb-8 pt-8 px-8' : 'p-8'}`}>
+            <div className={`bg-white rounded-2xl border border-zinc-200 shadow-2xl transition-all duration-300 ${isFilterActive ? 'pb-8 pt-8 px-8' : 'p-8'}`}>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-end">
                 
                 {/* Search */}
@@ -168,7 +191,6 @@ export default function HomeClient() {
                   </button>
 
                   <OverlayPanel ref={op} className="p-0 shadow-2xl rounded-2xl overflow-hidden border border-zinc-100" style={{ width: '360px' }}>
-                     {/* Overlay Content ... */}
                      <div className="p-7 bg-white">
                         <h4 className="text-[11px] font-black text-zinc-400 uppercase tracking-widest mb-7 text-center">Price Selector</h4>
                         
@@ -276,7 +298,7 @@ export default function HomeClient() {
                 rows={rows}
                 totalRecords={filteredProperties.length}
                 onPageChange={onPageChange}
-                className="bg-zinc-100 dark:bg-zinc-900 rounded-3xl px-8 py-4 border-none"
+                className="bg-zinc-100 dark:bg-zinc-900 rounded-3xl px-8 py-4 border-none w-full"
               />
             </div>
           )}
