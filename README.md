@@ -9,19 +9,33 @@ Welcome to **EleganceEstate**, a premier boutique real estate platform designed 
 To launch the EleganceEstate development experience, follow these steps:
 
 ### 1. Prerequisites
-Ensure you have **Node.js (v18+)** and **npm** installed on your system.
+
+Ensure you have the following installed:
+
+- **Node.js**: `>= 20.19.0 || >= 22.13.0`
+- **npm**: `>= 10`
+
+> Recommended:
+>
+> - Node.js `v22.12.0`
+> - npm `v11.0.0`
 
 ### 2. Installation
+
 Clone the repository and install the high-end dependencies:
+
 ```bash
 npm install
 ```
 
 ### 3. Launch Development Server
+
 Start the Turbopack-powered environment:
+
 ```bash
 npm run dev
 ```
+
 The site will be live at `http://localhost:3000`.
 
 ---
@@ -31,17 +45,23 @@ The site will be live at `http://localhost:3000`.
 EleganceEstate is built on a **Total Production Model**. Our folder structure and rendering strategies are optimized for enterprise-level scaling:
 
 ### 🔥 SSG (Static Site Generation)
-*Optimized for SEO and Instant Load times.*
+
+_Optimized for SEO and Instant Load times._
+
 - **`app/property/[id]/page.tsx`**: Dynamic Property Detail pages pre-rendered via `generateStaticParams`.
 
 ### ⚡ SSR (Server-Side Rendering)
-*Optimized for speed, SEO, and lean client bundles.*
+
+_Optimized for speed, SEO, and lean client bundles._
+
 - **`Header.tsx` & `Footer.tsx`**: Main navigation components are now pure Server Components, ensuring zero hydration overhead.
 - **`app/page.tsx`**: The data orchestrator for the property marketplace.
 - **`PropertyListing.tsx`**: Core listing engine that processes complex filtering on the server.
 
 ### 💎 CSR (Client-Side Rendering)
-*Optimized for Boutique Interactivity.*
+
+_Optimized for Boutique Interactivity._
+
 - **`ServerFilters.tsx`**: Debounced search and real-time URL synchronization.
 - **`PaginatorBridge.tsx`**: PrimeReact pagination link to server state.
 - **`ScheduleVisitForm.tsx`**: High-end PrimeReact form with Toast feedback.
@@ -50,6 +70,7 @@ EleganceEstate is built on a **Total Production Model**. Our folder structure an
 ---
 
 ## 🏛️ Production Folder Structure
+
 - **`types/`**: Centralized TypeScript interfaces for strict type safety.
 - **`constants/`**: Extracted static data (Cities, Categories, Options) for clean components.
 - **`components/layout/`**: Core SSR architectural wrappers.
@@ -59,6 +80,7 @@ EleganceEstate is built on a **Total Production Model**. Our folder structure an
 ---
 
 ## 🎨 Technology Stack
+
 - **Framework**: Next.js 16 (App Router)
 - **UI Library**: PrimeReact (Exclusively)
 - **Styling**: Tailwind CSS (Zinc Boutique Theme)
