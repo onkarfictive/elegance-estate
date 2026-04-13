@@ -14,8 +14,34 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "EleganceEstate | Premium Property Listings",
-  description: "Find your dream home with EleganceEstate.",
+  title: {
+    default: "EleganceEstate | Luxury Real Estate India",
+    template: "%s | EleganceEstate",
+  },
+  description: "Browse curated luxury villas, penthouses, and apartments in Bangalore, Mumbai, and Hyderabad with EleganceEstate.",
+  metadataBase: new URL("https://elegance-estate.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "EleganceEstate | Luxury Real Estate",
+    description: "Your destination for premium properties in India.",
+    url: "https://elegance-estate.vercel.app",
+    siteName: "EleganceEstate",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EleganceEstate | Luxury Real Estate",
+    description: "Premium property listings in India.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  themeColor: "#09090b",
 };
 
 export default function RootLayout({
