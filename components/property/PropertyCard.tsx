@@ -62,9 +62,9 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
       <div className="flex flex-col p-6 flex-grow">
         <div className="flex-grow">
           <Link href={`/property/${property.id}`}>
-            <h3 className="text-xl font-bold text-zinc-900 truncate tracking-tight mb-2 group-hover/card:text-blue-600 transition-colors duration-300">
+            <h2 className="text-xl font-bold text-zinc-900 truncate tracking-tight mb-2 group-hover/card:text-blue-600 transition-colors duration-300">
               {property.title}
-            </h3>
+            </h2>
           </Link>
           <div className="flex items-center gap-1.5 text-zinc-400 mb-2 px-0.5">
             <MapPin className="w-3.5 h-3.5 text-blue-500/70" />

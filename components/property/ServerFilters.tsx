@@ -79,6 +79,8 @@ const ServerFilters = ({
         <div className="flex flex-col gap-2">
           <label htmlFor="city-dropdown" className="text-[10px] font-black text-zinc-600 uppercase tracking-widest px-1">Destination</label>
           <Dropdown
+            inputId="city-dropdown"
+            ariaLabel="Select destination city"
             value={initialCity}
             options={cities}
             onChange={(e) => updateQuery({ city: e.value })}
@@ -88,6 +90,8 @@ const ServerFilters = ({
         <div className="flex flex-col gap-2">
           <label htmlFor="category-dropdown" className="text-[10px] font-black text-zinc-600 uppercase tracking-widest px-1">Residency Type</label>
           <Dropdown
+            inputId="category-dropdown"
+            ariaLabel="Select residency type"
             value={initialCategory}
             options={categories}
             onChange={(e) => updateQuery({ category: e.value })}
@@ -97,6 +101,8 @@ const ServerFilters = ({
         <div className="flex flex-col gap-2">
           <label htmlFor="beds-dropdown" className="text-[10px] font-black text-zinc-600 uppercase tracking-widest px-1">Bedrooms (BHK)</label>
           <Dropdown
+            inputId="beds-dropdown"
+            ariaLabel="Select number of bedrooms"
             value={initialBeds || "all"}
             options={beds}
             onChange={(e) => updateQuery({ beds: e.value })}
@@ -106,6 +112,8 @@ const ServerFilters = ({
         <div className="flex flex-col gap-2">
           <label htmlFor="budget-dropdown" className="text-[10px] font-black text-zinc-600 uppercase tracking-widest px-1">Budget Range</label>
           <Dropdown
+            inputId="budget-dropdown"
+            ariaLabel="Select budget range"
             value={
               initialMaxPrice === 20000000 ? "under-2" :
               initialMinPrice === 20000000 && initialMaxPrice === 50000000 ? "2-5" :
