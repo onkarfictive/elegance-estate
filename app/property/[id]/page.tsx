@@ -153,21 +153,21 @@ export default async function PropertyDetailPage({ params }: Props) {
             <div className="lg:col-span-2 space-y-10">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="bg-white p-6 rounded-xl border border-zinc-200 shadow-sm">
-                  <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-wider block mb-2">Price</span>
+                  <span className="text-zinc-600 text-[10px] font-bold uppercase tracking-wider block mb-2">Price</span>
                   <p className="text-2xl font-bold text-blue-600">
                     ₹{(property.price / 10000000).toFixed(2)} Cr
                   </p>
                 </div>
                 <div className="bg-white p-6 rounded-xl border border-zinc-200 shadow-sm">
-                  <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-wider block mb-2">Configuration</span>
+                  <span className="text-zinc-600 text-[10px] font-bold uppercase tracking-wider block mb-2">Configuration</span>
                   <p className="text-2xl font-bold text-zinc-900">{property.rooms} BHK</p>
                 </div>
                 <div className="bg-white p-6 rounded-xl border border-zinc-200 shadow-sm">
-                  <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-wider block mb-2">Bathrooms</span>
+                  <span className="text-zinc-600 text-[10px] font-bold uppercase tracking-wider block mb-2">Bathrooms</span>
                   <p className="text-2xl font-bold text-zinc-900">{property.bathrooms}</p>
                 </div>
                 <div className="bg-white p-6 rounded-xl border border-zinc-200 shadow-sm">
-                  <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-wider block mb-2">Built-up Area</span>
+                  <span className="text-zinc-600 text-[10px] font-bold uppercase tracking-wider block mb-2">Built-up Area</span>
                   <p className="text-2xl font-bold text-zinc-900">{property.area} sqft</p>
                 </div>
               </div>
@@ -218,7 +218,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                   {property.nearby.map((item, idx) => (
                     <div key={idx} className="flex items-center justify-between p-4 rounded-xl border border-zinc-100 bg-zinc-50/50">
                       <div className="flex items-center gap-3">
-                        <IconMapper name={item.icon} className="w-4 h-4 text-zinc-400" />
+                        <IconMapper name={item.icon} className="w-4 h-4 text-zinc-600" />
                         <span className="text-sm font-bold text-zinc-800">{item.place}</span>
                       </div>
                       <span className="text-[10px] font-bold text-blue-600 bg-white border border-blue-100 px-2.5 py-1 rounded-md">
@@ -233,7 +233,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                    <h2 className="text-xl font-bold text-zinc-900 mb-1 flex items-center gap-2">
                      Location Insight
                    </h2>
-                   <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-6">Explore the neighborhood of {property.city}</p>
+                   <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-6">Explore the neighborhood of {property.city}</p>
                 </div>
                 <div className="relative h-[400px] w-full bg-zinc-100 grayscale hover:grayscale-0 transition-all duration-700">
                   <iframe 

@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white shadow-sm font-outfit">
       <div className="container mx-auto flex h-20 items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2" aria-label="Elegance Estate Home">
           <div className="flex h-10 w-10 items-center justify-center rounded bg-blue-600 shadow-md">
             <Home className="text-white w-6 h-6" />
           </div>
@@ -29,7 +29,7 @@ const Header = () => {
                 key={link.href}
                 href={link.href} 
                 className={`text-[10px] font-black uppercase tracking-widest transition-all duration-300 relative group ${
-                  isActive ? "text-blue-600" : "text-zinc-500 hover:text-blue-600"
+                  isActive ? "text-blue-600" : "text-zinc-600 hover:text-blue-600"
                 }`}
               >
                 {link.name}
@@ -45,7 +45,7 @@ const Header = () => {
              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
            </span>
-           <span className="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-500">
+           <span className="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-600">
              Market Active
            </span>
         </div>

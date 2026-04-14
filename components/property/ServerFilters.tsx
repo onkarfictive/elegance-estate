@@ -65,19 +65,19 @@ const ServerFilters = ({
     <div className="bg-white/70 backdrop-blur-xl rounded-[2.5rem] border border-white/40 shadow-[0_20px_50px_rgba(0,0,0,0.04)] p-10 ring-1 ring-black/[0.02]">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 items-end">
         <div className="flex flex-col gap-3 lg:col-span-2 group">
-          <label className="text-[10px] font-black text-blue-600/60 uppercase tracking-widest px-2 group-hover:text-blue-600 transition-colors duration-500">Discover Luxury</label>
+          <label htmlFor="search-input" className="text-[10px] font-black text-blue-600 uppercase tracking-widest px-2 group-hover:text-blue-600 transition-colors duration-500">Discover Luxury</label>
           <IconField iconPosition="left">
             <InputIcon className="pi pi-search text-blue-400 group-hover:scale-110 transition-transform duration-500" />
             <InputText
               value={localQ}
               onChange={(e) => setLocalQ(e.target.value)}
               placeholder="Search by location, villa, or lifestyle..."
-              className="w-full h-12 rounded-xl bg-white text-sm font-bold text-zinc-900 placeholder:text-zinc-300 shadow-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/5 transition-all outline-none pl-12"
+              className="w-full h-12 rounded-xl bg-white text-sm font-bold text-zinc-900 placeholder:text-zinc-500 shadow-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/5 transition-all outline-none pl-12"
             />
           </IconField>
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest px-1">Destination</label>
+          <label htmlFor="city-dropdown" className="text-[10px] font-black text-zinc-600 uppercase tracking-widest px-1">Destination</label>
           <Dropdown
             value={initialCity}
             options={cities}
@@ -86,7 +86,7 @@ const ServerFilters = ({
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest px-1">Residency Type</label>
+          <label htmlFor="category-dropdown" className="text-[10px] font-black text-zinc-600 uppercase tracking-widest px-1">Residency Type</label>
           <Dropdown
             value={initialCategory}
             options={categories}
@@ -95,7 +95,7 @@ const ServerFilters = ({
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest px-1">Bedrooms (BHK)</label>
+          <label htmlFor="beds-dropdown" className="text-[10px] font-black text-zinc-600 uppercase tracking-widest px-1">Bedrooms (BHK)</label>
           <Dropdown
             value={initialBeds || "all"}
             options={beds}
@@ -104,7 +104,7 @@ const ServerFilters = ({
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest px-1">Budget Range</label>
+          <label htmlFor="budget-dropdown" className="text-[10px] font-black text-zinc-600 uppercase tracking-widest px-1">Budget Range</label>
           <Dropdown
             value={
               initialMaxPrice === 20000000 ? "under-2" :

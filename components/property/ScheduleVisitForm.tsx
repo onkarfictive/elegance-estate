@@ -59,7 +59,7 @@ const ScheduleVisitForm = () => {
       <p className="text-zinc-500 text-[13px] mb-8 leading-relaxed font-medium">Select your preferred date and time to tour this property with our expert consultant.</p>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="flex flex-col gap-2.5">
-          <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-1">
+          <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 flex items-center gap-1">
             Full Name <span className="text-red-500">*</span>
           </label>
           <IconField iconPosition="left">
@@ -74,7 +74,7 @@ const ScheduleVisitForm = () => {
           </IconField>
         </div>
         <div className="flex flex-col gap-2.5">
-          <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-1">
+          <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 flex items-center gap-1">
             Phone Number <span className="text-red-500">*</span>
           </label>
           <IconField iconPosition="left">
@@ -94,7 +94,7 @@ const ScheduleVisitForm = () => {
         </div>
         <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2.5">
-            <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-1">
+            <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 flex items-center gap-1">
               Date <span className="text-red-500">*</span>
             </label>
             <Calendar 
@@ -108,7 +108,7 @@ const ScheduleVisitForm = () => {
             />
           </div>
           <div className="flex flex-col gap-2.5">
-            <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-1">
+            <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 flex items-center gap-1">
               Time Slot <span className="text-red-500">*</span>
             </label>
             <Dropdown 
@@ -128,7 +128,7 @@ const ScheduleVisitForm = () => {
           <i className="pi pi-calendar-plus text-base"></i>
           Confirm Schedule
         </button>
-        <p className="text-[9px] text-center text-zinc-400 mt-6 px-4 uppercase tracking-tighter leading-relaxed">
+        <p className="text-[9px] text-center text-zinc-600 mt-6 px-4 uppercase tracking-tighter leading-relaxed font-bold">
           By clicking confirm, you agree to our terms of service and property visit guidelines.
         </p>
       </form>

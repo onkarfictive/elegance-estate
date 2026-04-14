@@ -18,7 +18,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
   return (
     <div className="h-full border border-zinc-200 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_45px_rgba(0,0,0,0.08)] transition-all duration-500 rounded-[2.5rem] overflow-hidden bg-white group/card flex flex-col hover:-translate-y-1">
       <div className="h-72 overflow-hidden relative group">
-        <Link href={`/property/${property.id}`} className="relative block h-full w-full">
+        <Link href={`/property/${property.id}`} className="relative block h-full w-full" aria-label={`View details of ${property.title}`}>
           <Image
             src={property.image}
             alt={property.title}
@@ -33,7 +33,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
           <span className="bg-white text-zinc-900 text-[9px] font-black px-3 py-1.5 rounded-lg uppercase tracking-widest whitespace-nowrap">
             {property.category}
           </span>
-          <span className="text-white text-[9px] font-black px-3 py-1.5 uppercase tracking-widest opacity-90 whitespace-nowrap">
+          <span className="text-white text-[9px] font-black px-3 py-1.5 uppercase tracking-widest whitespace-nowrap">
             {property.city}
           </span>
         </div>
@@ -68,27 +68,27 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
           </Link>
           <div className="flex items-center gap-1.5 text-zinc-400 mb-2 px-0.5">
             <MapPin className="w-3.5 h-3.5 text-blue-500/70" />
-            <p className="text-[11px] font-semibold tracking-wide uppercase text-zinc-400">
+            <p className="text-[11px] font-semibold tracking-wide uppercase text-zinc-500">
               {property.location}
             </p>
           </div>
         </div>
         <div className="grid grid-cols-4 gap-2 bg-zinc-50/80 p-4 rounded-2xl border border-zinc-100/50">
           <div className="flex flex-col gap-1.5">
-             <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest leading-none">BHK</span>
+             <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest leading-none">BHK</span>
              <span className="text-base font-bold text-zinc-900 leading-none">{property.rooms}</span>
           </div>
           <div className="flex flex-col gap-1.5 border-l border-zinc-200/50 pl-4">
-             <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest leading-none">Baths</span>
+             <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest leading-none">Baths</span>
              <span className="text-base font-bold text-zinc-900 leading-none">{property.bathrooms}</span>
           </div>
           <div className="flex flex-col gap-1.5 border-l border-zinc-200/50 pl-4">
-             <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest leading-none">Status</span>
+             <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest leading-none">Status</span>
              <span className="text-[10px] font-bold text-blue-600 uppercase leading-none">Ready</span>
           </div>
           <div className="flex flex-col gap-1.5 border-l border-zinc-200/50 pl-4">
-             <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest leading-none">Area</span>
-             <span className="text-base font-bold text-zinc-900 leading-none truncate">{property.area} <span className="text-[9px] font-medium text-zinc-400 uppercase">sqft</span></span>
+             <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest leading-none">Area</span>
+             <span className="text-base font-bold text-zinc-900 leading-none truncate">{property.area} <span className="text-[9px] font-medium text-zinc-500 uppercase">sqft</span></span>
           </div>
         </div>
         <div className="flex items-center justify-between pt-6 border-t border-zinc-100/60 mt-auto">
@@ -105,14 +105,14 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, priority = false 
               </div>
               <div className="flex flex-col">
                 <span className="text-[11px] font-bold text-zinc-900 tracking-tight leading-none">{property.contact.agentName}</span>
-                <span className="text-[9px] font-medium text-zinc-400 uppercase tracking-wider mt-1.5">Property Advisor</span>
+                <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wider mt-1.5">Property Advisor</span>
               </div>
            </div>
            <Link href={`/property/${property.id}`}>
-              <button className="group/btn relative overflow-hidden bg-zinc-900 text-white px-6 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all duration-500 hover:shadow-xl hover:shadow-zinc-900/20 active:scale-95">
+              <div className="group/btn relative overflow-hidden bg-zinc-900 text-white px-6 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all duration-500 hover:shadow-xl hover:shadow-zinc-900/20 active:scale-95 flex items-center justify-center">
                 <span className="relative z-10 font-bold">Details</span>
                 <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500 ease-out"></div>
-              </button>
+              </div>
            </Link>
         </div>
       </div>

@@ -67,7 +67,7 @@ export default function PropertyListing({
               <h1 className="text-3xl font-black text-zinc-900 tracking-tighter uppercase leading-none font-semibold">
                 Luxury Properties <span className="text-blue-600">in India</span>
               </h1>
-              <p className="text-zinc-400 text-[10px] font-black mt-3 uppercase tracking-widest leading-none">
+              <p className="text-zinc-600 text-[10px] font-bold mt-3 uppercase tracking-widest leading-none">
                 {totalRecords} boutique matches discovered
               </p>
             </div>
@@ -82,7 +82,7 @@ export default function PropertyListing({
             <div className="text-center py-40 bg-white border border-zinc-100 rounded-[2.5rem] shadow-sm">
               <AlertCircle className="w-16 h-16 text-zinc-100 mx-auto mb-6" />
               <h3 className="text-xl font-bold text-zinc-900 tracking-tight uppercase">No results found</h3>
-              <p className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest mt-2">Try adjusting your filters</p>
+              <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest mt-2">Try adjusting your filters</p>
             </div>
           )}
           {totalRecords > rowsPerPage && (
